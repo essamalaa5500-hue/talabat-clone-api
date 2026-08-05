@@ -7,7 +7,7 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "npx prisma migrate deploy && node index.js",
     "dev": "nodemon index.js",
     "debug": "nodemon --inspect index.js",
     "seed": "node prisma/seeds/index.js"
