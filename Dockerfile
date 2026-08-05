@@ -4,10 +4,12 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install --omit=dev
+RUN npm install
 
 COPY . .
 
+RUN npx prisma generate
+
 EXPOSE 3000
 
-CMD sh -c "npx prisma generate && npm start"
+CMD ["npm", "start"]

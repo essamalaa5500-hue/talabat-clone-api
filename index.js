@@ -142,6 +142,10 @@ const server = http.createServer(app);
 
 initSocket(server);
 
-server.listen(PORT, () => {
-  logger.info(`Server running on port ${PORT}`);
-});
+try {
+  server.listen(PORT, () => {
+    logger.info(`Server running on port ${PORT}`);
+  });
+} catch (err) {
+  console.error(err);
+}
