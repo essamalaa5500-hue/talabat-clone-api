@@ -1,0 +1,13 @@
+model ProductImage {
+  id        String           @id @default(uuid())
+  productId String
+  publicId  String
+  url       String
+  type      ProductImageType
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+  deletedAt DateTime?
+  product   Product          @relation(fields: [productId], references: [id])
+
+  @@unique([productId, url])
+}

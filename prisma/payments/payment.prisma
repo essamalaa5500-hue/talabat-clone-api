@@ -1,0 +1,13 @@
+model Payment {
+  id            String        @id @default(uuid())
+  orderId       String        @unique
+  paymentMethod PaymentMethod
+  amount        Decimal       @db.Decimal(10, 2)
+  status        PaymentStatus @default(PENDING)
+  transactionId String?       @unique
+  currency      String        @default("EGP")
+  paidAt        DateTime?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  order         Order         @relation(fields: [orderId], references: [id])
+}

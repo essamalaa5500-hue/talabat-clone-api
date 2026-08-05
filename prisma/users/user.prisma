@@ -1,0 +1,28 @@
+model User {
+  id                    String                  @id @default(uuid())
+  fullName              String
+  email                 String                  @unique
+  password              String
+  phone                 String                  @unique
+  avatar                String?
+  status                UserStatus              @default(ACTIVE)
+  role                  Role                    @default(CUSTOMER)
+  isEmailVerified       Boolean                 @default(false)
+  emailVerifiedAt       DateTime?
+  phoneVerifiedAt       DateTime?
+  lastLoginAt           DateTime?
+  createdAt             DateTime                @default(now())
+  updatedAt             DateTime                @updatedAt
+  deletedAt             DateTime?
+  cart                  Cart?
+  couponUsages          CouponUsage[]
+  deliveryStatusChanges DeliveryStatusHistory[]
+  driver                Driver?
+  driverReviews         DriverReview[]
+  notifications         Notification[]
+  orders                Order[]
+  refreshTokens         RefreshToken[]
+  restaurants           Restaurant[]
+  restaurantReviews     RestaurantReview[]
+  emailVerification     VerificationToken[]
+}

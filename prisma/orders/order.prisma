@@ -1,0 +1,32 @@
+model Order {
+  id                 String               @id @default(uuid())
+  userId             String
+  restaurantId       String
+  status             OrderStatus          @default(PENDING)
+  subtotal           Decimal              @db.Decimal(10, 2)
+  deliveryFee        Decimal              @db.Decimal(10, 2)
+  discount           Decimal              @default(0) @db.Decimal(10, 2)
+  tax                Decimal              @default(0) @db.Decimal(10, 2)
+  totalAmount        Decimal              @db.Decimal(10, 2)
+  notes              String?
+  driverId           String?
+  couponId           String?
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime             @updatedAt
+  deletedAt          DateTime?
+  branchId           String
+  couponUsage        CouponUsage?
+  delivery           Delivery?
+  driverReview       DriverReview?
+  notifications      Notification[]
+  branch             Branch               @relation(fields: [branchId], references: [id])
+  coupon             Coupon?              @relation(fields: [couponId], references: [id])
+  driver             Driver?              @relation(fields: [driverId], references: [id])
+  restaurant         Restaurant           @relation(fields: [restaurantId], references: [id])
+  user               User                 @relation(fields: [userId], references: [id])
+  orderAddress       OrderAddress?
+  items              OrderItem[]
+  orderStatusHistory OrderStatusHistory[]
+  payment            Payment?
+  restaurantReview   RestaurantReview?
+}

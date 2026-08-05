@@ -1,0 +1,20 @@
+model Branch {
+  id                  String          @id @default(uuid())
+  restaurantId        String          @map("restaurant_id")
+  name                String
+  description         String?
+  phone               String          @unique
+  deliveryFee         Decimal         @db.Decimal(10, 2)
+  minimumOrderAmount  Decimal         @db.Decimal(10, 2)
+  averageDeliveryTime Int
+  status              BranchStatus    @default(ACTIVE)
+  createdAt           DateTime        @default(now())
+  updatedAt           DateTime        @updatedAt
+  deletedAt           DateTime?
+  restaurant          Restaurant      @relation(fields: [restaurantId], references: [id])
+  address             BranchAddress?
+  branchProducts      BranchProduct[]
+  carts               Cart[]
+  orders              Order[]
+  workingHours        WorkingHour[]
+}

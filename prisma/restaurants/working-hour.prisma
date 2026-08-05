@@ -1,0 +1,13 @@
+model WorkingHour {
+  id        String    @id @default(uuid())
+  branchId  String    @map("branch_id")
+  dayOfWeek DayOfWeek
+  startTime String
+  endTime   String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  branch    Branch    @relation(fields: [branchId], references: [id])
+
+  @@unique([branchId, dayOfWeek])
+}

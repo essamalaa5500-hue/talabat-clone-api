@@ -1,0 +1,17 @@
+model Driver {
+  id                 String         @id @default(uuid())
+  userId             String         @unique
+  nationalId         String         @unique
+  licenseNumber      String         @unique
+  vehicleType        VehicleType
+  vehiclePlateNumber String         @unique
+  status             DriverStatus   @default(OFFLINE)
+  rating             Decimal?       @db.Decimal(2, 1)
+  createdAt          DateTime       @default(now())
+  updatedAt          DateTime       @updatedAt
+  deletedAt          DateTime?
+  deliveries         Delivery[]
+  user               User           @relation(fields: [userId], references: [id])
+  driverReviews      DriverReview[]
+  orders             Order[]
+}

@@ -1,0 +1,10 @@
+model DeliveryStatusHistory {
+  id          String         @id @default(uuid())
+  deliveryId  String
+  status      DeliveryStatus
+  changedById String?
+  notes       String?
+  createdAt   DateTime       @default(now())
+  changedBy   User?          @relation(fields: [changedById], references: [id])
+  delivery    Delivery       @relation(fields: [deliveryId], references: [id])
+}

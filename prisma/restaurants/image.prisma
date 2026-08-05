@@ -1,0 +1,11 @@
+model RestaurantImage {
+  id           String              @id @default(uuid())
+  url          String
+  publicId     String
+  restaurantId String              @map("restaurant_id")
+  type         RestaurantImageType
+  createdAt    DateTime            @default(now())
+  updatedAt    DateTime            @updatedAt
+  deletedAt    DateTime?
+  restaurant   Restaurant          @relation(fields: [restaurantId], references: [id])
+}

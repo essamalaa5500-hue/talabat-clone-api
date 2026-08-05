@@ -1,0 +1,8 @@
+model RestaurantCuisine {
+  restaurantId String
+  cuisineId    String
+  cuisine      Cuisine    @relation(fields: [cuisineId], references: [id])
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+
+  @@id([restaurantId, cuisineId])
+}

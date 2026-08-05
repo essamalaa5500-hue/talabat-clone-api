@@ -1,0 +1,14 @@
+model DriverReview {
+  id        String    @id @default(uuid())
+  userId    String
+  driverId  String
+  orderId   String    @unique
+  rating    Int
+  comment   String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  driver    Driver    @relation(fields: [driverId], references: [id])
+  order     Order     @relation(fields: [orderId], references: [id])
+  user      User      @relation(fields: [userId], references: [id])
+}

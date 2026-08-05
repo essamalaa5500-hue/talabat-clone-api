@@ -1,0 +1,8 @@
+model OrderStatusHistory {
+  id          String      @id @default(uuid())
+  orderId     String
+  status      OrderStatus
+  changedById String?
+  createdAt   DateTime    @default(now())
+  order       Order       @relation(fields: [orderId], references: [id])
+}

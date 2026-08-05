@@ -1,0 +1,18 @@
+model OrderItem {
+  id               String            @id @default(uuid())
+  orderId          String
+  productVariantId String
+  productName      String
+  variantName      String
+  unitPrice        Decimal           @db.Decimal(10, 2)
+  quantity         Int
+  totalPrice       Decimal           @db.Decimal(10, 2)
+  discount         Decimal           @default(0) @db.Decimal(10, 2)
+  notes            String?
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  deletedAt        DateTime?
+  order            Order             @relation(fields: [orderId], references: [id])
+  productVariant   ProductVariant    @relation(fields: [productVariantId], references: [id])
+  options          OrderItemOption[]
+}

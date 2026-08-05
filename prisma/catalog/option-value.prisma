@@ -1,0 +1,13 @@
+model OptionValue {
+  id              String           @id @default(uuid())
+  productOptionId String
+  name            String
+  extraPrice      Decimal          @db.Decimal(10, 2)
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  deletedAt       DateTime?
+  cartItems       CartItemOption[]
+  productOption   ProductOption    @relation(fields: [productOptionId], references: [id])
+
+  @@unique([productOptionId, name])
+}

@@ -1,0 +1,9 @@
+model BranchProduct {
+  branchId    String
+  productId   String
+  isAvailable Boolean @default(true)
+  branch      Branch  @relation(fields: [branchId], references: [id])
+  product     Product @relation(fields: [productId], references: [id])
+
+  @@id([branchId, productId])
+}

@@ -1,0 +1,20 @@
+model Coupon {
+  id                 String        @id @default(uuid())
+  code               String        @unique
+  type               CouponType
+  value              Decimal       @db.Decimal(10, 2)
+  minimumOrderAmount Decimal       @db.Decimal(10, 2)
+  maximumDiscount    Decimal?      @db.Decimal(10, 2)
+  usageLimit         Int
+  usedCount          Int           @default(0)
+  startsAt           DateTime
+  expiresAt          DateTime
+  isActive           Boolean       @default(true)
+  description        String?
+  name               String?
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
+  deletedAt          DateTime?
+  usages             CouponUsage[]
+  orders             Order[]
+}

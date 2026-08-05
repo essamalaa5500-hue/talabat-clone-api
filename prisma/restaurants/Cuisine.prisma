@@ -1,0 +1,8 @@
+model Cuisine {
+  id                 String              @id @default(uuid())
+  name               String              @unique
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime            @updatedAt
+  deletedAt          DateTime?
+  restaurantCuisines RestaurantCuisine[]
+}

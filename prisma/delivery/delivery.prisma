@@ -1,0 +1,15 @@
+model Delivery {
+  id          String                  @id @default(uuid())
+  orderId     String                  @unique
+  driverId    String?
+  status      DeliveryStatus          @default(PENDING)
+  assignedAt  DateTime?
+  pickedUpAt  DateTime?
+  deliveredAt DateTime?
+  canceledAt  DateTime?
+  createdAt   DateTime                @default(now())
+  updatedAt   DateTime                @updatedAt
+  driver      Driver?                 @relation(fields: [driverId], references: [id])
+  order       Order                   @relation(fields: [orderId], references: [id])
+  history     DeliveryStatusHistory[]
+}

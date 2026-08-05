@@ -1,0 +1,16 @@
+model OrderAddress {
+  id        String   @id @default(uuid())
+  orderId   String   @unique
+  city      String
+  area      String
+  street    String
+  building  String?
+  floor     String?
+  apartment String?
+  latitude  Decimal  @db.Decimal(10, 6)
+  longitude Decimal  @db.Decimal(10, 6)
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  order     Order    @relation(fields: [orderId], references: [id])
+}

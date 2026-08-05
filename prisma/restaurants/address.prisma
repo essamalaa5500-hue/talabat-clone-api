@@ -1,0 +1,17 @@
+model BranchAddress {
+  id        String    @id @default(uuid())
+  branchId  String    @unique @map("branch_id")
+  country   String
+  city      String
+  area      String
+  street    String
+  building  String?
+  floor     String?
+  apartment String?
+  latitude  Decimal   @db.Decimal(10, 6)
+  longitude Decimal   @db.Decimal(10, 6)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  branch    Branch    @relation(fields: [branchId], references: [id])
+}
