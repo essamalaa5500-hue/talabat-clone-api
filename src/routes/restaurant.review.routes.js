@@ -8,7 +8,7 @@ const {
   getRestaurantReviewById,
   getRestaurantReviews,
   getMyReviews,
-} = require("../controllers/Restaurant.Review.controller");
+} = require("../controllers/restaurant.review.controller");
 
 const {
   createRestaurantReviewValidation,
