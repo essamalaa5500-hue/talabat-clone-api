@@ -2,6 +2,7 @@ const asyncHandler = require("express-async-handler");
 const ErrorHandler = require("../../utils/ErrorHandler");
 const prisma = require("../../utils/prisma");
 const apiFeatures = require("../../utils/ApiFeatures");
+const { getCache, setCache, clearCache } = require("../../utils/clearCache");
 
 const createCuisine = asyncHandler(async (req, res, next) => {
   const name = req.body.name.trim();
