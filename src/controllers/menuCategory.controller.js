@@ -300,6 +300,37 @@ const deleteMenuCategory = asyncHandler(async (req, res, next) => {
   });
 });
 
+const getMenuCategoryById = asyncHandler(async (req, res, next) => {
+  const { id } = req.params;
+
+  const menuCategory = await prisma.menuCategory.findFirst({
+    where: {
+      id,
+      deletedAt: null,
+    },
+    select: {
+      id: true,
+      name: true,
+      createdAt: true,
+      updatedAt: true,
+      restaurant: {
+        select: {
+          id: true,
+          name: true,
+        },
+      },
+    },
+  });
+
+  if (!menuCategory) {
+    return next(new ErrorHandler("Menu category not found", 404));
+  }
+
+  res.status(200).json({
+    menuCategory,
+  });
+});
+
 module.exports = {
   getAllMenuCategories,
   getMyMenuCategoryById,
@@ -307,4 +338,5 @@ module.exports = {
   createMenuCategory,
   updateMenuCategory,
   deleteMenuCategory,
+  getMenuCategoryById,
 };

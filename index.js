@@ -94,7 +94,7 @@ app.use("/users", usersRoutes);
 app.use("/restaurants", restaurantRoutes);
 app.use("/branches", branchesRoutes);
 app.use("/cuisines", cuisinesRoutes);
-app.use("/menu-category", menuCategoryRoutes);
+app.use("/menu-categories", menuCategoryRoutes);
 app.use("/product", productRoutes);
 app.use("/product-variant", productVariantRoutes);
 app.use("/product-image", productImageRoutes);

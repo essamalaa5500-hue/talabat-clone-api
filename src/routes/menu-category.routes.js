@@ -8,6 +8,7 @@ const {
   createMenuCategory,
   updateMenuCategory,
   deleteMenuCategory,
+  getMenuCategoryById,
 } = require("../controllers/menuCategory.controller");
 
 const {
@@ -61,6 +62,6 @@ router.delete(
   deleteMenuCategory,
 );
 
-router.get("/:id", paramsValidation(["id"]), getAllMenuCategories);
+router.get("/:id", paramsValidation(["id"]), getMenuCategoryById);
 
 module.exports = router;
