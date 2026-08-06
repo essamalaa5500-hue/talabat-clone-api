@@ -1,10 +1,10 @@
+require("dotenv").config();
 const seedAdmin = require("./admin.seed");
-
 const seedUsers = require("./users.seed");
 const seedDrivers = require("./drivers.seed");
 
-const seedRestaurantCuisines = require("./cuisines.seed");
-
+const seedCuisines = require("./cuisines.seed");
+const seedRestaurantCuisines = require("./restaurant-cuisines.seed");
 const seedRestaurants = require("./restaurants.seed");
 
 const seedBranches = require("./branches.seed");
@@ -29,6 +29,7 @@ async function seed() {
     await seedUsers();
     await seedDrivers();
 
+    await seedCuisines();
     await seedRestaurants();
     await seedRestaurantCuisines();
 
@@ -41,6 +42,7 @@ async function seed() {
     await seedProductVariants();
     await seedProductOptions();
     await seedProductOptionValues();
+
     await seedProductImages();
 
     await seedCoupons();
