@@ -369,12 +369,16 @@ npx prisma migrate status
 
 ---
 
+## Live API
+
+https://talabat-clone-api.runsite.app
+
 # 📚 API Documentation
 
 Swagger documentation is available at
 
 ```
-http://localhost:3000/api-docs
+https://talabat-clone-api.runsite.app/api-docs
 ```
 
 ---

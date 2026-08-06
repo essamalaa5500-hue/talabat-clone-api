@@ -9,8 +9,8 @@ const compression = require("compression");
 const hpp = require("hpp");
 const logger = require("./config/logger");
 
-//require("./config/redis");
-//require("./workers/notification.worker");
+require("./config/redis");
+require("./workers/notification.worker");
 
 const { initSocket } = require("./socket/socket");
 const swaggerSpec = require("./src/docs/swagger");
