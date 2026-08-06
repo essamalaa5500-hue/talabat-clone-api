@@ -565,23 +565,6 @@ Main Entities:
 
 ---
 
-# 🚀 Future Improvements
-
-Some planned features:
-
-- Elasticsearch Search
-- Payment Gateway Integration (Stripe / Paymob)
-- SMS Verification
-- Google Maps Distance Matrix
-- Restaurant Analytics Dashboard
-- Admin Dashboard
-- Multi-language Support
-- CI/CD Pipeline (GitHub Actions)
-- Kubernetes Deployment
-- Monitoring with Prometheus & Grafana
-
----
-
 # 👨‍💻 Author
 
 **Essam Alaa**
