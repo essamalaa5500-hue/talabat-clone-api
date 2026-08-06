@@ -1,6 +1,6 @@
 const Joi = require("joi");
 const asyncHandler = require("express-async-handler");
-const ErrorHandler = require("../utils/errorHandler");
+const ErrorHandler = require("../utils/ErrorHandler");
 
 const registerSchema = Joi.object({
   fullName: Joi.string().trim().min(2).max(50).required(),

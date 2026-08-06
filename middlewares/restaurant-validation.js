@@ -1,5 +1,5 @@
 const Joi = require("joi");
-const ErrorHandler = require("../utils/errorHandler");
+const ErrorHandler = require("../utils/ErrorHandler");
 const asyncHandler = require("express-async-handler");
 
 const getAllRestaurantsSchema = Joi.object({
